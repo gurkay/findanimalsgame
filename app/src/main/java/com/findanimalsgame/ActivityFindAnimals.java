@@ -219,7 +219,7 @@ public class ActivityFindAnimals extends AppCompatActivity {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                // Actions to do after 5 seconds
+                // Actions to do after 2 seconds
                 stopPlayer();
                 playerStart(soundFindAnimals[randomIntFindAnimal]);
 
@@ -228,7 +228,7 @@ public class ActivityFindAnimals extends AppCompatActivity {
                  */
                 startTime();
             }
-        }, 5000);
+        }, 2000);
 
         // image view create
         for (int i = 0; i < numberOfRandomPlaceFindAnimal; i++) {
@@ -272,9 +272,8 @@ public class ActivityFindAnimals extends AppCompatActivity {
                                 public void onClick(View v) {
                                     Toast.makeText(context, "Message : Fail answer" + imageView.getId(), Toast.LENGTH_SHORT).show();
                                     gameRestart();
-
-                                    Intent intent = new Intent(getApplicationContext(), ActivityFindAnimalTimeFinish.class);
-                                    intent.putExtra("gameLevel", Integer.toString(activityWhatIsTimer.getGameLevel()));
+                                    speak("Wrong Answer");
+                                    Intent intent = new Intent(getApplicationContext(), ActivityFindAnimalsWrongAnswer.class);
                                     startActivity(intent);
                                     finish();
 

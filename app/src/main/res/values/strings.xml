@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Find Animals Game</string>
+    <string name="app_wrong_answer">Try again, please!</string>
 </resources>
