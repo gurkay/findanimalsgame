@@ -252,7 +252,7 @@ public class ActivityFindAnimals extends AppCompatActivity {
                             imageView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    speak("Correct Answer");
+                                    speak("You got it");
                                     Toast.makeText(context, "Answer : Correct" + imageView.getId(), Toast.LENGTH_SHORT).show();
                                     setNumberOfCheckAnswer(getNumberOfCheckAnswer() + 1);
                                     correctAnswer(getNumberOfCheckAnswer());
@@ -297,7 +297,7 @@ public class ActivityFindAnimals extends AppCompatActivity {
                         imageView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                speak("Correct Answer");
+                                speak("You got it");
                                 Toast.makeText(context, "Answer : Correct" + imageView.getId(), Toast.LENGTH_SHORT).show();
                                 setNumberOfCheckAnswer(getNumberOfCheckAnswer() + 1);
                                 correctAnswer(getNumberOfCheckAnswer());
