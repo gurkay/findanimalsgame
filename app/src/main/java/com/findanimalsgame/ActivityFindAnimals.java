@@ -121,7 +121,7 @@ public class ActivityFindAnimals extends AppCompatActivity {
 
         txtNumberOfLevelFindAnimals.setText(Integer.toString(activityWhatIsTimer.getGameLevel()));
 
-        mTTS = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
+        mTTS = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
@@ -204,6 +204,7 @@ public class ActivityFindAnimals extends AppCompatActivity {
 
         randomIntFindAnimal = randomNumberCreate(0, 25);
         txtQuestionFindAnimals.setText(questionFindAnimals[randomIntFindAnimal]);
+
         speak(txtQuestionFindAnimals.getText().toString());
 
         if (activityWhatIsTimer.getGameLevel() == 4) {
@@ -251,6 +252,7 @@ public class ActivityFindAnimals extends AppCompatActivity {
                             imageView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
+                                    speak("Correct Answer");
                                     Toast.makeText(context, "Answer : Correct" + imageView.getId(), Toast.LENGTH_SHORT).show();
                                     setNumberOfCheckAnswer(getNumberOfCheckAnswer() + 1);
                                     correctAnswer(getNumberOfCheckAnswer());
@@ -295,6 +297,7 @@ public class ActivityFindAnimals extends AppCompatActivity {
                         imageView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                speak("Correct Answer");
                                 Toast.makeText(context, "Answer : Correct" + imageView.getId(), Toast.LENGTH_SHORT).show();
                                 setNumberOfCheckAnswer(getNumberOfCheckAnswer() + 1);
                                 correctAnswer(getNumberOfCheckAnswer());
@@ -316,8 +319,9 @@ public class ActivityFindAnimals extends AppCompatActivity {
                                 Toast.makeText(context, "Message : Fail answer" + imageView.getId(), Toast.LENGTH_SHORT).show();
                                 gameRestart();
 
-                                Intent intent = new Intent(getApplicationContext(), ActivityFindAnimalTimeFinish.class);
-                                intent.putExtra("gameLevel", Integer.toString(activityWhatIsTimer.getGameLevel()));
+                                gameRestart();
+                                speak("Wrong Answer");
+                                Intent intent = new Intent(getApplicationContext(), ActivityFindAnimalsWrongAnswer.class);
                                 startActivity(intent);
                                 finish();
 
